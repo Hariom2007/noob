@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slab Studio — UI Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header>
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            <span class="logo-text">Slab<strong>Studio</strong></span>
+        </div>
+        <nav>
+            <button id="tab-workspace" class="tab active">
+                <span class="tab-dot"></span>Workspace
+            </button>
+            <button id="tab-library" class="tab">
+                <span class="tab-dot"></span>Vault
+            </button>
+        </nav>
+        <div class="header-meta">UI Studio</div>
+    </header>
+
+    <main>
+        <section id="view-workspace" class="view active-view">
+            <div class="sandbox">
+
+                <div class="preview-area">
+                    <div class="preview-label">LIVE PREVIEW</div>
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Preview">☀️</button>
+                    <div id="preview-element">Component</div>
+                    <div class="preview-grid-bg"></div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h2 class="section-title"><span class="section-num">01</span> Box Shadow</h2>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>X Offset</label>
+                                <span class="value-badge" id="x-val">0</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="x-offset" min="-50" max="50" value="0">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Y Offset</label>
+                                <span class="value-badge" id="y-val">10</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="y-offset" min="-50" max="50" value="10">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Blur</label>
+                                <span class="value-badge" id="blur-val">15</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="blur-radius" min="0" max="100" value="15">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Spread</label>
+                                <span class="value-badge" id="spread-val">0</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="spread-radius" min="-50" max="50" value="0">
+                        </div>
+
+                        <div class="control-group color-control">
+                            <label>Shadow Color</label>
+                            <div class="color-input-wrap">
+                                <input type="color" id="shadow-color" value="#00e5ff">
+                                <span class="color-hex" id="shadow-hex">#00e5ff</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="sidebar-section">
+                        <h2 class="section-title"><span class="section-num">02</span> Gradient</h2>
+
+                        <div class="color-pair">
+                            <div class="control-group color-control">
+                                <label>From</label>
+                                <div class="color-input-wrap">
+                                    <input type="color" id="grad-color-1" value="#0d0d1a">
+                                    <span class="color-hex" id="g1-hex">#0d0d1a</span>
+                                </div>
+                            </div>
+                            <div class="control-group color-control">
+                                <label>To</label>
+                                <div class="color-input-wrap">
+                                    <input type="color" id="grad-color-2" value="#1a0d2e">
+                                    <span class="color-hex" id="g2-hex">#1a0d2e</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Angle</label>
+                                <span class="value-badge" id="angle-val">145</span><span class="unit">°</span>
+                            </div>
+                            <input type="range" id="grad-angle" min="0" max="360" value="145">
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="sidebar-section">
+                        <h2 class="section-title"><span class="section-num">03</span> Shape & Glass</h2>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Border Radius</label>
+                                <span class="value-badge" id="radius-val">10</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="border-radius" min="0" max="150" value="10">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Backdrop Blur</label>
+                                <span class="value-badge" id="glass-blur-val">0</span><span class="unit">px</span>
+                            </div>
+                            <input type="range" id="glass-blur" min="0" max="50" value="0">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="label-row">
+                                <label>Bg Opacity</label>
+                                <span class="value-badge" id="bg-opac-val">100</span><span class="unit">%</span>
+                            </div>
+                            <input type="range" id="bg-opac" min="0" max="100" value="100">
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="sidebar-section code-section">
+                        <h2 class="section-title"><span class="section-num">04</span> Output</h2>
+                        <div class="code-block">
+                            <code id="css-output"></code>
+                            <button id="copy-btn" class="copy-btn" title="Copy CSS">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="open-modal-btn" class="btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                        Save to Vault
+                    </button>
+                </aside>
+            </div>
+        </section>
+
+        <section id="view-library" class="view hidden">
+            <div class="library-header">
+                <h2>Your Vault <span class="snippet-count" id="snippet-count">0</span></h2>
+                <p class="library-sub">Saved components and CSS snippets</p>
+            </div>
+            <div id="library-grid" class="grid"></div>
+        </section>
+    </main>
+
+    <div id="save-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Save to Vault</h3>
+                <button id="cancel-btn" class="modal-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="field">
+                    <label>Component Name</label>
+                    <input type="text" id="snippet-name" placeholder="e.g. Hero Button">
+                </div>
+                <div class="field">
+                    <label>Tag</label>
+                    <input type="text" id="snippet-tag" placeholder="e.g. #neon">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="cancel-btn-2" class="btn-ghost">Cancel</button>
+                <button id="confirm-save-btn" class="btn-primary">Confirm Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
